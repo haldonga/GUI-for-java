@@ -12,7 +12,8 @@ public class Main extends JPanel implements ActionListener {
     int y = 540;
     int z = 0;
     int c = 0;
-    int schet = 0;
+    int schet = 1;
+    int count = 0;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         this.setBackground(Color.gray);
@@ -32,25 +33,31 @@ public class Main extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (schet < 200) {
-            x--;
-            y--;
-            z++;
-            z++;
-            c++;
-            c++;
-            schet++;
-            repaint();
-        }
-        else if (schet> 199 && schet<400) {
-            x++;
-            y++;
-            z--;
-            z--;
-            c--;
-            c--;
-            schet++;
-            repaint();
+        while(schet > 0 && < 400) {
+            if (count < 10000) {
+                if (schet < 200) {
+                    x--;
+                    y--;
+                    z++;
+                    z++;
+                    c++;
+                    c++;
+                    schet++;
+                    repaint();
+                } else if (schet> 199 && schet<400) {
+                    x++;
+                    y++;
+                    z--;
+                    z--;
+                    c--;
+                    c--;
+                    schet++;
+                    repaint();
+                }
+            } else {
+                schet = 500;
+            }
+            count++;
         }
     }
 }
